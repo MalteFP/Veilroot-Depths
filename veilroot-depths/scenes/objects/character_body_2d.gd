@@ -6,13 +6,8 @@ const JUMP_VELOCITY = -150.0
 var currentCollisionMask = 1
 
 func _ready():
-	set_collision_mask_value(currentCollisionMask, false)
-	get_tree().current_scene.get_node("Tilemap/Layer" + str(currentCollisionMask)).z_index = 0
-	get_tree().current_scene.get_node("Tilemap/Layer" + str(currentCollisionMask)).set_self_modulate(Color(1.0, 1.0, 1.0, 1.0))
-	
-	set_collision_mask_value(currentCollisionMask, true)
-	get_tree().current_scene.get_node("Tilemap/Layer" + str((currentCollisionMask % get_tree().current_scene.get_meta("numLayers")) + 1)).z_index = 1
 	get_tree().current_scene.get_node("Tilemap/Layer" + str((currentCollisionMask % get_tree().current_scene.get_meta("numLayers")) + 1)).set_self_modulate(Color(0.173, 0.173, 0.173, 1.0))
+	
 
 func _physics_process(delta: float) -> void:
 	applyMovement(delta)
@@ -30,14 +25,30 @@ func applyMovement(delta: float) -> void:
 	else:
 		velocity.y += 300 * delta
 	if Input.is_action_just_pressed("switchLayer"):
-		set_collision_mask_value(currentCollisionMask, false)
-		get_tree().current_scene.get_node("Tilemap/Layer" + str(currentCollisionMask)).z_index = 0
-		get_tree().current_scene.get_node("Tilemap/Layer" + str(currentCollisionMask)).set_self_modulate(Color(0.173, 0.173, 0.173, 1.0))
-		currentCollisionMask = (currentCollisionMask % get_tree().current_scene.get_meta("numLayers")) + 1
-		set_collision_mask_value(currentCollisionMask, true)
-		get_tree().current_scene.get_node("Tilemap/Layer" + str(currentCollisionMask)).z_index = 1
-		get_tree().current_scene.get_node("Tilemap/Layer" + str(currentCollisionMask)).set_self_modulate(Color(1.0, 1.0, 1.0, 1.0))
+		swapLayer()
 	
 		
 	if Input.is_action_just_released("left") or Input.is_action_just_released("right"):
 		velocity.x = 0
+
+func swapLayer():
+	set_collision_mask_value(currentCollisionMask, false)
+	get_tree().current_scene.get_node("Tilemap/Layer" + str(currentCollisionMask)).z_index = 0
+	get_tree().current_scene.get_node("Tilemap/Layer" + str(currentCollisionMask)).set_self_modulate(Color(0.173, 0.173, 0.173, 1.0))
+	currentCollisionMask = (currentCollisionMask % get_tree().current_scene.get_meta("numLayers")) + 1
+	set_collision_mask_value(currentCollisionMask, true)
+	print(get_node("AnimatedSprite2D/PointLight2D").get_item_shadow_cull_mask())
+	get_node("AnimatedSprite2D/PointLight2D").set_item_shadow_cull_mask(1 << (currentCollisionMask -1))
+	print(get_node("AnimatedSprite2D/PointLight2D").get_item_shadow_cull_mask())
+	
+	get_tree().current_scene.get_node("Tilemap/Layer" + str(currentCollisionMask)).z_index = 1
+	get_tree().current_scene.get_node("Tilemap/Layer" + str(currentCollisionMask)).set_self_modulate(Color(1.0, 1.0, 1.0, 1.0))
+	
+	
+	
+	
+	
+	
+	
+	
+	
