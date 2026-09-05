@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cd6uas0g3wgk5"]
+
+[ext_resource type="Texture2D" uid="uid://bu5wxdsehx2p" path="res://Textures/Player/icon/standing1.png" id="1_8dtwq"]
+[ext_resource type="Script" uid="uid://bfrlf3yesyy3n" path="res://scenes/objects/character_body_2d.gd" id="1_h5uus"]
+[ext_resource type="Texture2D" uid="uid://ddnkgmxonir6o" path="res://Textures/Player/misc/pixil-frame-0 (1).png" id="2_oonuf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgr0v"]
+size = Vector2(11, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bgr0v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8dtwq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="Node2D" unique_id=499605920]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1500960949]
+script = ExtResource("1_h5uus")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1355882317]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_bgr0v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1692856203]
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_bgr0v")
+
+[node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D/AnimatedSprite2D" unique_id=1005009810]
+position = Vector2(132, -1)
+texture = ExtResource("2_oonuf")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1881456974]
+zoom = Vector2(2.5, 2.5)
