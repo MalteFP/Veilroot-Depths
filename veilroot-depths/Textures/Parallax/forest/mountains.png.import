@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgar4e6nfk5ah"
-path="res://.godot/imported/rocks.png-4eb2b277c4111fa26a9124dba17b4f14.ctex"
+uid="uid://dbodr53e3lxaw"
+path="res://.godot/imported/mountains.png-832e243a6d0662483ee6de7adb0305d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Tilemaps/rocks.png"
-dest_files=["res://.godot/imported/rocks.png-4eb2b277c4111fa26a9124dba17b4f14.ctex"]
+source_file="res://Textures/Parallax/forest/mountains.png"
+dest_files=["res://.godot/imported/mountains.png-832e243a6d0662483ee6de7adb0305d8.ctex"]
 
 [params]
 

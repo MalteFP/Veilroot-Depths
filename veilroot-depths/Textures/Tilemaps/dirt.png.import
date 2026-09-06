@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgar4e6nfk5ah"
-path="res://.godot/imported/rocks.png-4eb2b277c4111fa26a9124dba17b4f14.ctex"
+uid="uid://donwit5kkm6ai"
+path="res://.godot/imported/dirt.png-81a5c26810d31df248c77ab17fbaa5f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Tilemaps/rocks.png"
-dest_files=["res://.godot/imported/rocks.png-4eb2b277c4111fa26a9124dba17b4f14.ctex"]
+source_file="res://Textures/Tilemaps/dirt.png"
+dest_files=["res://.godot/imported/dirt.png-81a5c26810d31df248c77ab17fbaa5f8.ctex"]
 
 [params]
 

@@ -20,27 +20,24 @@ animations = [{
 
 [node name="Player" type="Node2D" unique_id=499605920]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1500960949]
+[node name="player" type="CharacterBody2D" parent="." unique_id=1500960949]
 script = ExtResource("1_h5uus")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1355882317]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1355882317]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_bgr0v")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1692856203]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=1692856203]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_bgr0v")
 
-[node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D/AnimatedSprite2D" unique_id=1005009810]
+[node name="PointLight2D" type="PointLight2D" parent="player/AnimatedSprite2D" unique_id=1005009810]
 position = Vector2(5, -1)
 scale = Vector2(1.0009766, 1)
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 0.1
-shadow_item_cull_mask = 0
+shadow_item_cull_mask = 3
 texture = ExtResource("3_h5uus")
 offset = Vector2(128, 0)
 texture_scale = 0.25
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1881456974]
-zoom = Vector2(2.5, 2.5)
