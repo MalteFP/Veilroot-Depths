@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddnkgmxonir6o"
-path="res://.godot/imported/pixil-frame-0 (1).png-1935697011cb301e0f47583b837f9b48.ctex"
+uid="uid://d2jhfwi6ufdcn"
+path="res://.godot/imported/light_cone.png-a7ae0b5ed8dd2a4ff4a790fae5b0643c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Player/misc/pixil-frame-0 (1).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (1).png-1935697011cb301e0f47583b837f9b48.ctex"]
+source_file="res://Textures/Player/misc/light_cone.png"
+dest_files=["res://.godot/imported/light_cone.png-a7ae0b5ed8dd2a4ff4a790fae5b0643c.ctex"]
 
 [params]
 

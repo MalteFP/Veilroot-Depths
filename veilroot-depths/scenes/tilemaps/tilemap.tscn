@@ -45,6 +45,7 @@ polygon = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 polygon = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l4j28"]
+resource_name = "Layer1"
 texture = ExtResource("1_l4j28")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
@@ -196,6 +197,7 @@ sources/4 = SubResource("TileSetAtlasSource_l4j28")
 polygon = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_714up"]
+resource_name = "Layer2"
 texture = ExtResource("1_l4j28")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
@@ -225,6 +227,7 @@ texture_region_size = Vector2i(8, 8)
 0:2/0 = 0
 0:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_i6doy")
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+1:2/next_alternative_id = 4
 1:2/0 = 0
 1:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_i6doy")
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
@@ -339,7 +342,7 @@ texture_region_size = Vector2i(8, 8)
 
 [sub_resource type="TileSet" id="TileSet_l4j28"]
 tile_size = Vector2i(8, 8)
-occlusion_layer_0/light_mask = 1
+occlusion_layer_0/light_mask = 4
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 2
 sources/2 = SubResource("TileSetAtlasSource_714up")

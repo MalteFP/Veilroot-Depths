@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bu5wxdsehx2p" path="res://Textures/Player/icon/standing1.png" id="1_8dtwq"]
 [ext_resource type="Script" uid="uid://bfrlf3yesyy3n" path="res://scenes/objects/character_body_2d.gd" id="1_h5uus"]
-[ext_resource type="Texture2D" uid="uid://ddnkgmxonir6o" path="res://Textures/Player/misc/pixil-frame-0 (1).png" id="2_oonuf"]
+[ext_resource type="Texture2D" uid="uid://d2jhfwi6ufdcn" path="res://Textures/Player/misc/light_cone.png" id="3_h5uus"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgr0v"]
 size = Vector2(11, 19)
@@ -33,10 +33,14 @@ sprite_frames = SubResource("SpriteFrames_bgr0v")
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D/AnimatedSprite2D" unique_id=1005009810]
 position = Vector2(5, -1)
-scale = Vector2(1.0195313, 1)
+scale = Vector2(1.0009766, 1)
 shadow_enabled = true
-texture = ExtResource("2_oonuf")
+shadow_filter = 1
+shadow_filter_smooth = 0.1
+shadow_item_cull_mask = 0
+texture = ExtResource("3_h5uus")
 offset = Vector2(128, 0)
+texture_scale = 0.25
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1881456974]
 zoom = Vector2(2.5, 2.5)

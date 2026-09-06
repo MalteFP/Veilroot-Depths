@@ -37,10 +37,7 @@ func swapLayer():
 	get_tree().current_scene.get_node("Tilemap/Layer" + str(currentCollisionMask)).set_self_modulate(Color(0.173, 0.173, 0.173, 1.0))
 	currentCollisionMask = (currentCollisionMask % get_tree().current_scene.get_meta("numLayers")) + 1
 	set_collision_mask_value(currentCollisionMask, true)
-	print(get_node("AnimatedSprite2D/PointLight2D").get_item_shadow_cull_mask())
-	get_node("AnimatedSprite2D/PointLight2D").set_item_shadow_cull_mask(1 << (currentCollisionMask -1))
-	print(get_node("AnimatedSprite2D/PointLight2D").get_item_shadow_cull_mask())
-	
+	get_node("AnimatedSprite2D/PointLight2D").set_item_shadow_cull_mask(int("0b" + str(1 << (currentCollisionMask -1)) + "1" ))
 	get_tree().current_scene.get_node("Tilemap/Layer" + str(currentCollisionMask)).z_index = 1
 	get_tree().current_scene.get_node("Tilemap/Layer" + str(currentCollisionMask)).set_self_modulate(Color(1.0, 1.0, 1.0, 1.0))
 	
