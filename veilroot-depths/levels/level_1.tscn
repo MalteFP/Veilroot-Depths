@@ -42,13 +42,20 @@ position = Vector2(17, -107.00001)
 scale = Vector2(600, 300)
 
 [node name="Bat" parent="." unique_id=83705417 instance=ExtResource("5_n46q3")]
-position = Vector2(-120, -73)
 
-[node name="FinalPosMarker" parent="Bat/Node2D" parent_id_path=PackedInt32Array(83705417, 1374109992) index="0" unique_id=748231247]
-position = Vector2(170, 0)
+[node name="AnimatedSprite2D" parent="Bat/Node2D" parent_id_path=PackedInt32Array(83705417, 1374109992) index="0" unique_id=242962129]
+position = Vector2(-51, -160)
+
+[node name="Label" parent="Bat/Node2D/AnimatedSprite2D/Sprite2D" parent_id_path=PackedInt32Array(83705417, 1944213108) index="0" unique_id=359977652]
+text = "S to switch
+lane"
+
+[node name="FinalPosMarker" parent="Bat/Node2D" parent_id_path=PackedInt32Array(83705417, 1374109992) index="1" unique_id=1633475365]
+position = Vector2(232, -79)
 
 [node name="CollisionShape2D" parent="Bat/appearBox" parent_id_path=PackedInt32Array(83705417, 1644957648) index="0" unique_id=444583087]
-position = Vector2(130, 44)
+position = Vector2(174, -62)
+scale = Vector2(1, 4)
 
 [editable path="Tilemap"]
 [editable path="Camara"]

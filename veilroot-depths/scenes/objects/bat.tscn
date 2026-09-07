@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bhxd80ehr1a7c" path="res://Textures/bat/bat1.png" id="5_wrsb3"]
 [ext_resource type="Texture2D" uid="uid://2jy4h5y86h8f" path="res://Textures/bat/bat2.png" id="6_dvmns"]
 [ext_resource type="Texture2D" uid="uid://c2ub3lvqgakxm" path="res://Textures/bat/bat3.png" id="7_odlia"]
+[ext_resource type="Texture2D" uid="uid://doyvf2d8pcrn0" path="res://Textures/bat/pixil-frame-0 (1).png" id="8_ox6ys"]
+[ext_resource type="FontFile" uid="uid://hsvlextxmx3x" path="res://Textures/bat/Renogare-Regular.otf" id="9_iq8tg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q2j6n"]
 animations = [{
@@ -46,12 +48,29 @@ animations = [{
 [node name="Node2D" type="Node2D" parent="." unique_id=1374109992]
 script = ExtResource("1_rqb0q")
 
-[node name="FinalPosMarker" type="Marker2D" parent="Node2D" unique_id=748231247]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D" unique_id=242962129]
 sprite_frames = SubResource("SpriteFrames_q2j6n")
 animation = &"flying"
 frame_progress = 0.59932756
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/AnimatedSprite2D" unique_id=1944213108]
+visible = false
+position = Vector2(14, -37)
+scale = Vector2(2, 2)
+texture = ExtResource("8_ox6ys")
+
+[node name="Label" type="Label" parent="Node2D/AnimatedSprite2D/Sprite2D" unique_id=359977652]
+offset_left = -26.0
+offset_top = -13.0
+offset_right = 25.0
+offset_bottom = 10.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_iq8tg")
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalPosMarker" type="Node2D" parent="Node2D" unique_id=1633475365]
 
 [node name="appearBox" type="Area2D" parent="." unique_id=1644957648]
 collision_layer = 513
