@@ -5,7 +5,7 @@ extends Node2D
 @onready var finalPos = get_node("FinalPosMarker").global_position
 
 var appeared = false
-
+var done = false
 func _ready() -> void:
 	sprite.visible = false
 
@@ -30,7 +30,8 @@ func _on_appear_box_body_shape_entered(body_rid: RID, body: Node2D, body_shape_i
 
 
 func _on_disappear_box_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	if body.name == "player" and appeared == true:
+	if body.name == "player" and appeared == true and done == false:
+		done = true
 		get_node("AnimatedSprite2D/Sprite2D").visible = false
 		sprite.play("flyaway")
 		for i in range(100):

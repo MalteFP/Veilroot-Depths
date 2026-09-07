@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://cd6uas0g3wgk5"]
 
-[ext_resource type="Texture2D" uid="uid://bu5wxdsehx2p" path="res://Textures/Player/icon/standing1.png" id="1_8dtwq"]
 [ext_resource type="Script" uid="uid://bfrlf3yesyy3n" path="res://scenes/objects/character_body_2d.gd" id="1_h5uus"]
-[ext_resource type="Texture2D" uid="uid://d2jhfwi6ufdcn" path="res://Textures/Player/misc/light_cone.png" id="3_h5uus"]
+[ext_resource type="Texture2D" uid="uid://uuqkj3lj4wvi" path="res://Textures/Player/icon/walking/sprite000.png" id="2_2rlf8"]
+[ext_resource type="Texture2D" uid="uid://drno6ffh4qyss" path="res://Textures/Player/icon/standing/sprite001.png" id="3_0ay4w"]
+[ext_resource type="Texture2D" uid="uid://40qxkd768c4l" path="res://Textures/Player/misc/image (1).png" id="3_h5uus"]
+[ext_resource type="Texture2D" uid="uid://c6s30hfb2ttay" path="res://Textures/Player/icon/standing/sprite002.png" id="4_tuhu7"]
+[ext_resource type="Texture2D" uid="uid://642ckxvn4kv5" path="res://Textures/Player/icon/standing/sprite003.png" id="5_4c2uj"]
+[ext_resource type="Texture2D" uid="uid://cexe134us5v7y" path="res://Textures/Player/icon/standing/sprite004.png" id="6_dunks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgr0v"]
 size = Vector2(11, 19)
@@ -11,10 +15,27 @@ size = Vector2(11, 19)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_8dtwq")
+"texture": ExtResource("2_2rlf8")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0ay4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tuhu7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4c2uj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dunks")
+}],
+"loop": 1,
+"name": &"walking",
 "speed": 5.0
 }]
 
@@ -24,31 +45,32 @@ size = Vector2(11, 19)
 [node name="Player" type="Node2D" unique_id=499605920]
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=1500960949]
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_h5uus")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1355882317]
-position = Vector2(-0.5, 0.5)
+scale = Vector2(1, 1.25)
 shape = SubResource("RectangleShape2D_bgr0v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=1692856203]
-position = Vector2(0, -6)
+position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_bgr0v")
+animation = &"walking"
 
 [node name="PointLight2D" type="PointLight2D" parent="player/AnimatedSprite2D" unique_id=1005009810]
-position = Vector2(5, -1)
+position = Vector2(4.333331, -7.000002)
+rotation = -0.7853982
 scale = Vector2(1.0009766, 1)
 shadow_enabled = true
-shadow_filter = 1
 shadow_filter_smooth = 0.1
 shadow_item_cull_mask = 3
 texture = ExtResource("3_h5uus")
-offset = Vector2(256, 0)
-texture_scale = 0.5
+offset = Vector2(128, 128)
+texture_scale = 0.25
 
 [node name="DetectBox" type="Area2D" parent="player" unique_id=1393513564]
 collision_layer = 512
 collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/DetectBox" unique_id=134567886]
-position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_cc5bk")

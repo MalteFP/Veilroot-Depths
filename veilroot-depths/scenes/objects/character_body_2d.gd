@@ -4,12 +4,15 @@ var isInBlock = true
 const SPEED = 50.0
 const JUMP_VELOCITY = -150.0
 var currentCollisionMask = 1
+var colors = [null, Color(1.0, 0.0, 0.0, 1.0), Color(0.0, 0.0, 1.0, 1.0)]
 
 func _ready() -> void:
-		get_tree().current_scene.get_node("Tilemap/Layer" + str(currentCollisionMask)).set_light_mask(1)
+	get_node("AnimatedSprite2D/PointLight2D").color = colors[currentCollisionMask]
+	get_tree().current_scene.get_node("Tilemap/Layer" + str(currentCollisionMask)).set_light_mask(1)
 
 func _physics_process(delta: float) -> void:
 	applyMovement(delta)
+	updateIcon()
 	move_and_slide()
 
 func applyMovement(delta: float) -> void:
@@ -40,3 +43,11 @@ func swapLayer():
 		get_node("AnimatedSprite2D/PointLight2D").set_item_shadow_cull_mask(int("0b" + str(1 << (currentCollisionMask -1)) + "1" ))
 		get_tree().current_scene.get_node("Tilemap/Layer" + str(currentCollisionMask)).z_index = 1
 		get_tree().current_scene.get_node("Tilemap/Layer" + str(currentCollisionMask)).set_light_mask(1)
+		get_node("AnimatedSprite2D/PointLight2D").color = colors[currentCollisionMask]
+
+func updateIcon():
+	if velocity.x != 0:
+		get_node("AnimatedSprite2D").play("walking")
+	else:
+		get_node("AnimatedSprite2D").play("idle")
+		
