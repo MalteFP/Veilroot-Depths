@@ -53,9 +53,13 @@ lane"
 [node name="FinalPosMarker" parent="Bat/Node2D" parent_id_path=PackedInt32Array(83705417, 1374109992) index="1" unique_id=1633475365]
 position = Vector2(232, -79)
 
-[node name="CollisionShape2D" parent="Bat/appearBox" parent_id_path=PackedInt32Array(83705417, 1644957648) index="0" unique_id=444583087]
+[node name="appear" parent="Bat/appearBox" parent_id_path=PackedInt32Array(83705417, 1644957648) index="0" unique_id=444583087]
 position = Vector2(174, -62)
 scale = Vector2(1, 4)
+
+[node name="disappear" parent="Bat/disappearBox" parent_id_path=PackedInt32Array(83705417, 1785433322) index="0" unique_id=1981573563]
+position = Vector2(248, -82)
+scale = Vector2(1, 10)
 
 [editable path="Tilemap"]
 [editable path="Camara"]

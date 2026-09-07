@@ -27,3 +27,12 @@ func _on_appear_box_body_shape_entered(body_rid: RID, body: Node2D, body_shape_i
 			await get_tree().create_timer(0.01).timeout
 		sprite.play("idle")
 		get_node("AnimatedSprite2D/Sprite2D").visible = true
+
+
+func _on_disappear_box_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if body.name == "player" and appeared == true:
+		get_node("AnimatedSprite2D/Sprite2D").visible = false
+		sprite.play("flyaway")
+		for i in range(100):
+			sprite.scale -= Vector2(0.005,0.005)
+			await get_tree().create_timer(0.1).timeout

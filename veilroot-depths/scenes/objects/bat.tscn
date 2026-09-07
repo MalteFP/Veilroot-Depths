@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://bv7daanlnfdjl"]
 
 [ext_resource type="Script" uid="uid://buo1tx6cnrrhr" path="res://scenes/objects/bat.gd" id="1_rqb0q"]
+[ext_resource type="Texture2D" uid="uid://dx8dwh5mkxkfc" path="res://Textures/bat/bat9.png" id="2_dvmns"]
 [ext_resource type="Texture2D" uid="uid://xrypps6n0lyy" path="res://Textures/bat/bat5.png" id="2_lao7u"]
+[ext_resource type="Texture2D" uid="uid://dyntcdq4hwlrm" path="res://Textures/bat/bat10.png" id="3_odlia"]
 [ext_resource type="Texture2D" uid="uid://dcgnr0tklxt1f" path="res://Textures/bat/bat6.png" id="3_ox6ys"]
+[ext_resource type="Texture2D" uid="uid://c6yd6ahsyg8om" path="res://Textures/bat/bat11.png" id="4_3u0hb"]
 [ext_resource type="Texture2D" uid="uid://bl3p0v8d6bqm0" path="res://Textures/bat/bat7.png" id="4_iq8tg"]
 [ext_resource type="Texture2D" uid="uid://bhxd80ehr1a7c" path="res://Textures/bat/bat1.png" id="5_wrsb3"]
 [ext_resource type="Texture2D" uid="uid://2jy4h5y86h8f" path="res://Textures/bat/bat2.png" id="6_dvmns"]
@@ -12,6 +15,20 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q2j6n"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dvmns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_odlia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3u0hb")
+}],
+"loop": 1,
+"name": &"flyaway",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_lao7u")
@@ -50,8 +67,7 @@ script = ExtResource("1_rqb0q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D" unique_id=242962129]
 sprite_frames = SubResource("SpriteFrames_q2j6n")
-animation = &"flying"
-frame_progress = 0.59932756
+animation = &"flyaway"
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/AnimatedSprite2D" unique_id=1944213108]
 visible = false
@@ -76,7 +92,15 @@ vertical_alignment = 1
 collision_layer = 513
 collision_mask = 513
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="appearBox" unique_id=444583087]
+[node name="appear" type="CollisionShape2D" parent="appearBox" unique_id=444583087]
+shape = SubResource("RectangleShape2D_q2j6n")
+
+[node name="disappearBox" type="Area2D" parent="." unique_id=1785433322]
+collision_layer = 513
+collision_mask = 513
+
+[node name="disappear" type="CollisionShape2D" parent="disappearBox" unique_id=1981573563]
 shape = SubResource("RectangleShape2D_q2j6n")
 
 [connection signal="body_shape_entered" from="appearBox" to="Node2D" method="_on_appear_box_body_shape_entered"]
+[connection signal="body_shape_entered" from="disappearBox" to="Node2D" method="_on_disappear_box_body_shape_entered"]
