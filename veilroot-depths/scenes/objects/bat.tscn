@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bv7daanlnfdjl"]
+
+[ext_resource type="Script" uid="uid://buo1tx6cnrrhr" path="res://scenes/objects/bat.gd" id="1_rqb0q"]
+[ext_resource type="Texture2D" uid="uid://xrypps6n0lyy" path="res://Textures/bat/bat5.png" id="2_lao7u"]
+[ext_resource type="Texture2D" uid="uid://dcgnr0tklxt1f" path="res://Textures/bat/bat6.png" id="3_ox6ys"]
+[ext_resource type="Texture2D" uid="uid://bl3p0v8d6bqm0" path="res://Textures/bat/bat7.png" id="4_iq8tg"]
+[ext_resource type="Texture2D" uid="uid://bhxd80ehr1a7c" path="res://Textures/bat/bat1.png" id="5_wrsb3"]
+[ext_resource type="Texture2D" uid="uid://2jy4h5y86h8f" path="res://Textures/bat/bat2.png" id="6_dvmns"]
+[ext_resource type="Texture2D" uid="uid://c2ub3lvqgakxm" path="res://Textures/bat/bat3.png" id="7_odlia"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q2j6n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lao7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ox6ys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iq8tg")
+}],
+"loop": 1,
+"name": &"flying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wrsb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dvmns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_odlia")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2j6n"]
+
+[node name="Bat" type="Node2D" unique_id=83705417]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1374109992]
+script = ExtResource("1_rqb0q")
+
+[node name="FinalPosMarker" type="Marker2D" parent="Node2D" unique_id=748231247]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D" unique_id=242962129]
+sprite_frames = SubResource("SpriteFrames_q2j6n")
+animation = &"flying"
+frame_progress = 0.59932756
+
+[node name="appearBox" type="Area2D" parent="." unique_id=1644957648]
+collision_layer = 513
+collision_mask = 513
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="appearBox" unique_id=444583087]
+shape = SubResource("RectangleShape2D_q2j6n")
+
+[connection signal="body_shape_entered" from="appearBox" to="Node2D" method="_on_appear_box_body_shape_entered"]

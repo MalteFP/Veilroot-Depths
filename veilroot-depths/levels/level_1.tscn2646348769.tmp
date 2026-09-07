@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://fe4t363h3i6k" path="res://scenes/tilemaps/tilemap.tscn" id="2_jirdo"]
 [ext_resource type="PackedScene" uid="uid://cd6uas0g3wgk5" path="res://scenes/objects/player.tscn" id="3_bt44k"]
 [ext_resource type="PackedScene" uid="uid://gm8gwuvdkw6n" path="res://scenes/objects/camara.tscn" id="4_kx6l7"]
-[ext_resource type="PackedScene" uid="uid://bv7daanlnfdjl" path="res://scenes/objects/bat.tscn" id="5_n46q3"]
 
 [node name="level_1" type="Node2D" unique_id=870771343]
 metadata/numLayers = 2
@@ -17,7 +16,6 @@ position = Vector2(-4, 94)
 [node name="Layer1" parent="Tilemap" index="0" unique_id=2014378392]
 light_mask = 0
 z_index = 10
-tile_map_data = PackedByteArray("AAAZAPn/BgAAAAAAAAA=")
 
 [node name="Layer2" parent="Tilemap" index="1" unique_id=225077308]
 light_mask = 0
@@ -41,15 +39,5 @@ visible = false
 position = Vector2(17, -107.00001)
 scale = Vector2(600, 300)
 
-[node name="Bat" parent="." unique_id=83705417 instance=ExtResource("5_n46q3")]
-position = Vector2(-120, -73)
-
-[node name="FinalPosMarker" parent="Bat/Node2D" parent_id_path=PackedInt32Array(83705417, 1374109992) index="0" unique_id=748231247]
-position = Vector2(170, 0)
-
-[node name="CollisionShape2D" parent="Bat/appearBox" parent_id_path=PackedInt32Array(83705417, 1644957648) index="0" unique_id=444583087]
-position = Vector2(130, 44)
-
 [editable path="Tilemap"]
 [editable path="Camara"]
-[editable path="Bat"]

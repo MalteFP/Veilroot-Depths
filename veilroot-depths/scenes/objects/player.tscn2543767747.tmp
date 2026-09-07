@@ -46,9 +46,10 @@ offset = Vector2(128, 0)
 texture_scale = 0.25
 
 [node name="DetectBox" type="Area2D" parent="player" unique_id=1393513564]
-collision_layer = 512
-collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/DetectBox" unique_id=134567886]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_cc5bk")
+
+[connection signal="body_shape_entered" from="player/DetectBox" to="player" method="_on_detect_box_body_shape_entered"]
+[connection signal="body_shape_exited" from="player/DetectBox" to="player" method="_on_detect_box_body_shape_exited"]
